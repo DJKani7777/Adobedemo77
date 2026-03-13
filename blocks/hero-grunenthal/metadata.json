@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-grunenthal",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-03-13T10:58:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.grunenthal.de",
+    "originPage": "Grünenthal corporate homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "corporate-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background-image + heading + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "corporate homepage hero banners",
+      "full-width image banners with text overlay",
+      "career and promotional sections with background images"
+    ],
+    "notSuitableFor": [
+      "text-only hero sections",
+      "hero with multiple CTAs",
+      "hero with video background"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-13T10:58:00.000Z"
+  }
+}

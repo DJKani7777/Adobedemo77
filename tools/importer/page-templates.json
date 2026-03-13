@@ -1,0 +1,113 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.grunenthal.de"
+      ],
+      "description": "Grünenthal corporate homepage with hero banner, content sections, and corporate information",
+      "blocks": [
+        {
+          "name": "hero-grunenthal",
+          "instances": [
+            ".hero-home",
+            ".tout.tout-primary"
+          ]
+        },
+        {
+          "name": "columns-grunenthal",
+          "instances": [
+            ".component.gcimage",
+            "article.tout__secondary",
+            ".component.gcvideovimeo"
+          ]
+        },
+        {
+          "name": "cards-grunenthal",
+          "instances": [
+            ".component.gxstoriescarousel"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero",
+          "selector": ".hero-home",
+          "style": null,
+          "blocks": ["hero-grunenthal"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Intro Text",
+          "selector": ".row-splitter:has(.small-spacer-m)",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".richtext.richtext--standard h2",
+            ".richtext.richtext--standard p"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Vision",
+          "selector": [
+            ".row-splitter:has(.gcimage)",
+            ".component.gcimage"
+          ],
+          "style": null,
+          "blocks": ["columns-grunenthal"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "News",
+          "selector": ".row-splitter:has(.gxstoriescarousel)",
+          "style": null,
+          "blocks": ["cards-grunenthal"],
+          "defaultContent": [
+            ".gcsectionheader .section-header__title"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Service Touts",
+          "selector": [
+            ".row-splitter:has(.tout__secondary)",
+            ".gctout:has(.tout__secondary)"
+          ],
+          "style": null,
+          "blocks": ["columns-grunenthal"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Videos",
+          "selector": ".row-splitter:has(.gcvideovimeo)",
+          "style": null,
+          "blocks": ["columns-grunenthal"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Career",
+          "selector": ".row-splitter:has(.tout-primary)",
+          "style": null,
+          "blocks": ["hero-grunenthal"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Disclaimer",
+          "selector": [".row-splitter:has(.richtext--standard):last-of-type", ".row-splitter:last-of-type"],
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            ".richtext.richtext--standard p"
+          ]
+        }
+      ]
+    }
+  ]
+}

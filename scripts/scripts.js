@@ -1,11 +1,14 @@
 import {
   buildBlock,
+  decorateBlock,
+  loadBlock,
   loadHeader,
   loadFooter,
   decorateIcons,
   decorateSections,
   decorateBlocks,
   decorateTemplateAndTheme,
+  getMetadata,
   waitForFirstImage,
   loadSection,
   loadSections,
@@ -151,11 +154,38 @@ async function loadEager(doc) {
 }
 
 /**
+ * Gets metadata from head meta tags, falling back to the metadata block in content.
+ * The fallback handles local dev where the AEM CLI does not inject meta tags.
+ * @param {string} name The metadata name
+ * @returns {string} The metadata value
+ */
+function getPageMetadata(name) {
+  const meta = getMetadata(name);
+  if (meta) return meta;
+  const metaBlock = document.querySelector('.metadata');
+  if (!metaBlock) return '';
+  const row = [...metaBlock.children].find((r) => {
+    const key = r.children[0]?.textContent?.trim().toLowerCase();
+    return key === name.toLowerCase();
+  });
+  return row?.children[1]?.textContent?.trim() || '';
+}
+
+/**
  * Loads everything that doesn't need to be delayed.
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  loadHeader(doc.querySelector('header'));
+  const headerBlockName = getPageMetadata('header-block');
+  if (headerBlockName) {
+    const headerEl = doc.querySelector('header');
+    const headerBlock = buildBlock(headerBlockName, '');
+    headerEl.append(headerBlock);
+    decorateBlock(headerBlock);
+    await loadBlock(headerBlock);
+  } else {
+    loadHeader(doc.querySelector('header'));
+  }
 
   const main = doc.querySelector('main');
   await loadSections(main);
@@ -164,7 +194,16 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadFooter(doc.querySelector('footer'));
+  const footerBlockName = getPageMetadata('footer-block');
+  if (footerBlockName) {
+    const footerEl = doc.querySelector('footer');
+    const footerBlock = buildBlock(footerBlockName, '');
+    footerEl.append(footerBlock);
+    decorateBlock(footerBlock);
+    await loadBlock(footerBlock);
+  } else {
+    loadFooter(doc.querySelector('footer'));
+  }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
