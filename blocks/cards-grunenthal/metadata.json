@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-grunenthal",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-13T10:58:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.grunenthal.de",
+    "originPage": "Grünenthal corporate homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "news-grid",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + title + excerpt + date",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "news article grids",
+      "blog post listings",
+      "story card collections",
+      "event listings with images"
+    ],
+    "notSuitableFor": [
+      "icon-based feature cards",
+      "pricing cards",
+      "team member cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-13T10:58:00.000Z"
+  }
+}

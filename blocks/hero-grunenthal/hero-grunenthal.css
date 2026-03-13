@@ -1,0 +1,117 @@
+/* Hero Grunenthal - Full-width hero with image overlay */
+.hero-grunenthal-container {
+  background-color: #0a0a0a;
+}
+
+.hero-grunenthal-container .hero-grunenthal-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-grunenthal {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-grunenthal > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-grunenthal > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-grunenthal > div:last-child {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 400px;
+  padding: 32px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+}
+
+.hero-grunenthal > div:last-child > div {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-grunenthal h1,
+.hero-grunenthal h2 {
+  color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  margin: 0 0 16px;
+  line-height: 1;
+}
+
+.hero-grunenthal h1 {
+  font-size: 32px;
+}
+
+.hero-grunenthal h2 {
+  font-size: 28px;
+}
+
+.hero-grunenthal p {
+  color: #f4f4f4;
+  margin: 8px 0;
+}
+
+.hero-grunenthal em strong,
+.hero-grunenthal strong em {
+  color: #f4f4f4;
+  font-style: italic;
+}
+
+.hero-grunenthal a.button {
+  background-color: #00a059;
+  color: #fff;
+  border: none;
+  border-radius: 48px;
+  padding: 12px 27px;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.hero-grunenthal a.button:hover {
+  background-color: #008a4d;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .hero-grunenthal {
+    min-height: 650px;
+  }
+
+  .hero-grunenthal > div:last-child {
+    min-height: 650px;
+    padding: 48px 32px;
+  }
+
+  .hero-grunenthal h1 {
+    font-size: 46px;
+    line-height: 46px;
+  }
+
+  .hero-grunenthal h2 {
+    font-size: 38px;
+    line-height: 44px;
+  }
+}

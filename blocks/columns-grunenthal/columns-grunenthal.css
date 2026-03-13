@@ -1,0 +1,96 @@
+/* Columns Grunenthal - Side-by-side content */
+.columns-grunenthal > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-grunenthal > div > div {
+  order: 1;
+}
+
+.columns-grunenthal > div > .columns-grunenthal-img-col {
+  order: 0;
+}
+
+.columns-grunenthal img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.columns-grunenthal > div > .columns-grunenthal-img-col img {
+  display: block;
+}
+
+.columns-grunenthal h2 {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0a0a0a;
+  line-height: 1.2;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.columns-grunenthal h2 a {
+  color: #0a0a0a;
+  text-decoration: none;
+}
+
+.columns-grunenthal h2 a:hover {
+  color: #00a059;
+  text-decoration: underline;
+}
+
+.columns-grunenthal p {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #282828;
+  margin: 8px 0;
+}
+
+.columns-grunenthal a.button {
+  background-color: transparent;
+  color: #282828;
+  border: 1px solid #282828;
+  border-radius: 48px;
+  padding: 8px 24px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.columns-grunenthal a.button:hover {
+  background-color: #00a059;
+  border-color: #00a059;
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .columns-grunenthal > div {
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .columns-grunenthal > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-grunenthal h2 {
+    font-size: 28px;
+    margin-top: 0;
+  }
+}
+
+@media (width >= 1200px) {
+  .columns-grunenthal h2 {
+    font-size: 32px;
+  }
+}
