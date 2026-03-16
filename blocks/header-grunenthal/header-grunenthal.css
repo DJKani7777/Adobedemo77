@@ -41,10 +41,13 @@ header .header-grunenthal .support-bar-inner {
 header .header-grunenthal .support-bar .nav-tools {
   display: flex;
   align-items: center;
-  gap: 0;
-  list-style: none;
   margin: 0;
   padding: 0;
+}
+
+header .header-grunenthal .support-bar .nav-tools .default-content-wrapper {
+  display: flex;
+  align-items: center;
 }
 
 header .header-grunenthal .support-bar .nav-tools p {
