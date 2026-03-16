@@ -1,13 +1,23 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
 
 export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta
     ? new URL(footerMeta, window.location).pathname
     : '/fragments/grunenthal-footer';
-  const fragment = await loadFragment(footerPath);
-  if (!fragment) return;
+  const resp = await fetch(`${footerPath}.html`);
+  if (!resp.ok) return;
+  const html = await resp.text();
+  const fragment = document.createElement('div');
+  fragment.innerHTML = html;
+
+  // Wrap each section's content in default-content-wrapper (mimics EDS decoration)
+  [...fragment.children].forEach((section) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'default-content-wrapper';
+    while (section.firstChild) wrapper.append(section.firstChild);
+    section.append(wrapper);
+  });
 
   block.textContent = '';
   const footer = document.createElement('div');

@@ -1,7 +1,5 @@
 import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
 
-// Grünenthal header variant with support bar
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
 function closeOnEscape(e) {
@@ -101,8 +99,19 @@ export default async function decorate(block) {
   const navPath = navMeta
     ? new URL(navMeta, window.location).pathname
     : '/fragments/grunenthal-nav';
-  const fragment = await loadFragment(navPath);
-  if (!fragment) return;
+  const resp = await fetch(`${navPath}.html`);
+  if (!resp.ok) return;
+  const html = await resp.text();
+  const fragment = document.createElement('div');
+  fragment.innerHTML = html;
+
+  // Wrap each section's content in default-content-wrapper (mimics EDS decoration)
+  [...fragment.children].forEach((section) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'default-content-wrapper';
+    while (section.firstChild) wrapper.append(section.firstChild);
+    section.append(wrapper);
+  });
 
   block.textContent = '';
   const nav = document.createElement('nav');
