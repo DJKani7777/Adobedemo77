@@ -1,6 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
+// Grünenthal header variant with support bar
 const isDesktop = window.matchMedia('(min-width: 900px)');
 
 function closeOnEscape(e) {
