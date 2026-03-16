@@ -9,7 +9,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 24px;
+  gap: 24px;
 }
 
 .cards-grunenthal > ul > li {
@@ -52,6 +52,35 @@
   color: #0a0a0a;
 }
 
+/* Reset button decoration on card title links — original site uses plain text links */
+.cards-grunenthal .cards-grunenthal-card-body p.button-wrapper {
+  margin: 0 0 8px;
+}
+
+.cards-grunenthal .cards-grunenthal-card-body a.button {
+  display: inline;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: #0a0a0a;
+  font-size: 19px;
+  font-weight: 500;
+  font-family: Arial, sans-serif;
+  line-height: 1.35;
+  text-decoration: none;
+  white-space: normal;
+  text-overflow: unset;
+  overflow: visible;
+}
+
+.cards-grunenthal .cards-grunenthal-card-body a.button:hover {
+  background: none;
+  border: none;
+  color: #00a059;
+  text-decoration: none;
+}
+
 .cards-grunenthal .cards-grunenthal-card-body p:first-child {
   font-size: 16px;
   font-weight: 500;
@@ -66,7 +95,7 @@
 
 .cards-grunenthal .cards-grunenthal-card-body p:first-child a:hover {
   color: #00a059;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .cards-grunenthal .cards-grunenthal-card-body p:last-child {
