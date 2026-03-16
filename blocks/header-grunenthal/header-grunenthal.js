@@ -99,8 +99,9 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta
     ? new URL(navMeta, window.location).pathname
-    : '/content/grunenthal-nav';
+    : '/fragments/grunenthal-nav';
   const fragment = await loadFragment(navPath);
+  if (!fragment) return;
 
   block.textContent = '';
   const nav = document.createElement('nav');
